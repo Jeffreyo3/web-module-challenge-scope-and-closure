@@ -40,13 +40,17 @@ function processFirstItem(stringList, callback) {
 // counter1 code
 function counterMaker() {
   let count = 0;
-  return function counter() {
+  function counter() {
     count++;
   }
+  counter();
+  counter();
+  counter();
+  return count
 }
 
 const counter1 = counterMaker();
-console.log()
+console.log(counter1)
 
 // counter2 code
 let count = 0;
@@ -150,4 +154,4 @@ function scoreboard(inningscoreCB, inningCB, inningsNum) {
 }
 
 
-console.log(scoreboard(getInningScore, inning, 9));
+console.log("Task 4:", scoreboard(getInningScore, inning, 9));
