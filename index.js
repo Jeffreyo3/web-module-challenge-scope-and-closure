@@ -33,7 +33,8 @@ function processFirstItem(stringList, callback) {
  *  counter 1 utilizes closure. it calls a function that has a function nested inside of it.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *   counter 1 will never be preferable since the it doesn't return a number. The function returns another function that is never called & does not have external global scope for it to be used anywhere else. counter2 would be useful if all functions need access to the count variable.
+ *   counter1 is preferred when creating a function that needs to only keep track of a count when its being called,
+ *   counter2 could be used in the case of many functions needing access to the count variable (global)
  *
 */
 
