@@ -33,25 +33,25 @@ function processFirstItem(stringList, callback) {
  *  counter 1 utilizes closure. it calls a function that has a function nested inside of it.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *   counter1 is preferred when creating a function that needs to only keep track of a count when its being called,
- *   counter2 could be used in the case of many functions needing access to the count variable (global)
+ *   counter1: the benefits of using the first function is that you could assign it to a variable and have different variables run the same function simultaneously - let count is protected
+ *   counter2: could be used in the case of many functions needing access to the count variable (global)
  *
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
-  function counter() {
-    count++;
+
+  return function counter() {
+    return count++;
   }
-  counter();
-  counter();
-  counter();
-  return count
+
 }
 
 const counter1 = counterMaker();
-console.log(counter1)
+
+console.log(counter1());
+console.log(counter1());
 
 // counter2 code
 let count = 0;
